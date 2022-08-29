@@ -6,12 +6,11 @@ class Roofline():
     
        
     
-    def __init__(self, mem_roofs, cmp_roofs, achieved_performance, flag='Others'):
+    def __init__(self, mem_roofs, cmp_roofs, achieved_performance):
            
         self.mem_roofs = mem_roofs
         self.cmp_roofs = cmp_roofs
         self.achieved_performance = achieved_performance
-        self.flag = flag
 
         
         
@@ -58,17 +57,6 @@ class Roofline():
 
         
 
-        if self.flag == 'SpMV':
-
-            kernel_flags = [self.flag]
-
-        elif self.flag == 'Others':
-            kernel_flags = ['LBMHD', 'Stencil', 'FFT(512^3)', 'FFT(128^3)']
-        elif self.flag == 'All':
-            kernel_flags = ['SpMV', 'LBMHD', 'Stencil','FFT(128^3)', 'FFT(512^3)']
-            
-        elif self.flag == None:
-            kernel_flags = None
 
         x = np.logspace(xmin, xmax, nx)
 
